@@ -1,4 +1,4 @@
-// Changed L&R system with forget password funtion incomplete
+// Changed L&R system with forget password funtion incomplete project
 #include <iostream>
 #include<fstream>
 #include<string>
