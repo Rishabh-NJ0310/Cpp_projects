@@ -1,4 +1,4 @@
-// Changed L&R system with forget password funtion incomplete project
+// L&R system with forget password funtion incomplete function
 #include <iostream>
 #include<fstream>
 #include<string>
@@ -9,18 +9,19 @@ char ch;
 void replaceStringInFile(string& filename, string& searchString, string& replaceString) {
     ifstream inputFile(filename);
     string fileContent((istreambuf_iterator<char>(inputFile)), istreambuf_iterator<char>());
-    inputFile.close();
     string Password,username;
     while(inputFile>>username>>Password){
         if(searchString == username){
-            cout<<Password<<endl;
-    size_t pos = fileContent.find(searchString);
+            // cout<<Password<<endl;
+    size_t pos = fileContent.find(Password);
     while (pos != string::npos) {
         fileContent.replace(pos, Password.length(), replaceString);
         pos = fileContent.find(Password, pos + replaceString.length());
     }
+		break;
         }
 }
+    inputFile.close();
     ofstream outputFile(filename);
     outputFile << fileContent;
     outputFile.close();
@@ -66,7 +67,7 @@ void forget(){
     replaceStringInFile(filename, searchString, replaceString);
     }else{
     ifstream read("database.txt");
-    ofstream write("database.txt",ios::app);
+    // ofstream write("database.txt",ios::app);
     cout<<":: Enter the username to find your password :: "<<endl;
     cin>>username;
     while(read>>registered_username>>registered_password){
